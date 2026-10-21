@@ -1,0 +1,933 @@
+
+/* =====================================
+   APEX SECONDARY SCHOOL
+   SHARED CSS FOR ALL SIX PAGES
+   ===================================== */
+
+/* 1. GLOBAL SETTINGS */
+:root {
+    --navy: #101d35;
+    --navy-light: #1b2d4b;
+    --red: #d92736;
+    --red-dark: #b91f2c;
+    --white: #ffffff;
+    --text: #263247;
+    --muted: #667085;
+    --light: #f4f6f9;
+    --border: #e2e7ef;
+    --shadow: 0 12px 35px rgba(16, 29, 53, 0.09);
+    --radius: 14px;
+    --container: 1160px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(217, 39, 54, 0.35);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(var(--container), 92%);
+    margin-inline: auto;
+}
+
+.section-padding {
+    padding: 88px 0;
+}
+
+/* 2. HEADER AND NAVIGATION */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 18px rgba(16, 29, 53, 0.04);
+    backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    color: var(--navy);
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+    width: 47px;
+    height: 47px;
+    border-radius: 12px;
+    background: var(--red);
+    color: white;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.logo strong,
+.logo small {
+    display: block;
+    line-height: 1.25;
+}
+
+.logo strong {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+
+.logo small {
+    margin-top: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.navigation a {
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+    transition: 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: var(--red);
+    background: #fff0f1;
+}
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    color: var(--navy);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* 3. BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 23px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.4;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    color: white;
+    background: var(--red);
+    box-shadow: 0 8px 18px rgba(217, 39, 54, 0.18);
+}
+
+.btn-primary:hover {
+    background: var(--red-dark);
+}
+
+.btn-outline {
+    color: white;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-light {
+    color: var(--navy);
+    background: white;
+}
+
+.btn-light:hover {
+    background: #edf1f7;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--red);
+    font-weight: 750;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* 4. HOME HERO */
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: 590px;
+    padding: 90px 0;
+    overflow: hidden;
+    color: white;
+    background:
+        linear-gradient(
+            105deg,
+            rgba(10, 22, 42, 0.96),
+            rgba(16, 29, 53, 0.76)
+        ),
+        url("images/school.jpg") center / cover no-repeat,
+        var(--navy);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 22, 42, 0.45),
+        transparent
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-label,
+.section-label {
+    margin-bottom: 13px;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-label {
+    color: #ffb5bc;
+}
+
+.hero h1 {
+    max-width: 800px;
+    margin-bottom: 22px;
+    font-size: clamp(38px, 5.4vw, 66px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+/* 5. INNER PAGE BANNERS */
+.page-banner {
+    padding: 78px 0;
+    color: white;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(217, 39, 54, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(125deg, var(--navy), var(--navy-light));
+}
+
+.page-banner .section-label {
+    color: #ffb5bc;
+}
+
+.page-banner h1 {
+    max-width: 850px;
+    margin-bottom: 12px;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.15;
+}
+
+.page-banner p:not(.section-label) {
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.83);
+}
+
+.page-banner .text-link {
+    margin-top: 18px;
+    color: #ffb5bc;
+}
+
+.page-banner span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* 6. SECTION HEADINGS */
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.section-heading h2,
+.intro-text h2,
+.contact-information h2,
+.contact-form h2 {
+    margin-bottom: 17px;
+    color: var(--navy);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.section-heading > p:not(.section-label),
+.intro-text p,
+.contact-information > p {
+    color: var(--muted);
+}
+
+/* 7. INTRODUCTION */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.intro-text > p + p {
+    margin-top: 15px;
+}
+
+.intro-image {
+    min-height: 330px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--light);
+    box-shadow: var(--shadow);
+}
+
+.intro-image img {
+    height: 100%;
+    min-height: 330px;
+    max-height: 460px;
+    object-fit: cover;
+}
+
+/* 8. FEATURE CARDS */
+.features {
+    background: var(--light);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.feature-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: 0 5px 20px rgba(16, 29, 53, 0.035);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 20px;
+    border-radius: 13px;
+    color: var(--red);
+    background: #fff0f1;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.feature-card h3,
+.academic-card h3,
+.gallery-caption h3,
+.contact-detail h3 {
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-size: 19px;
+    line-height: 1.35;
+}
+
+.feature-card p,
+.academic-card p,
+.gallery-caption p,
+.contact-detail p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* 9. ACADEMIC CARDS */
+.academic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.academic-card {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--red);
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 6px 22px rgba(16, 29, 53, 0.045);
+    transition: transform 0.2s ease;
+}
+
+.academic-card:hover {
+    transform: translateY(-4px);
+}
+
+.academics-preview .btn {
+    margin-top: 32px;
+}
+
+/* 10. ADMISSIONS CALL TO ACTION */
+.admissions-cta {
+    color: white;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 10% 100%,
+            rgba(217, 39, 54, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(125deg, var(--navy), var(--navy-light));
+}
+
+.admissions-cta .container {
+    max-width: 850px;
+}
+
+.admissions-cta .section-label {
+    color: #ffb5bc;
+}
+
+.admissions-cta h2 {
+    margin-bottom: 16px;
+    font-size: clamp(29px, 4vw, 43px);
+    line-height: 1.2;
+}
+
+.admissions-cta p:not(.section-label) {
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.admissions-cta .btn {
+    margin: 5px;
+}
+
+/* 11. SCHOOL GALLERY */
+.gallery-section {
+    padding-top: 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: 0 7px 22px rgba(16, 29, 53, 0.06);
+}
+
+.gallery-item img {
+    height: 235px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.045);
+}
+
+.gallery-caption {
+    padding: 21px;
+}
+
+.gallery-caption h3 {
+    margin-bottom: 6px;
+}
+
+.gallery-note {
+    margin-top: 28px;
+    padding: 15px 18px;
+    border-left: 4px solid var(--red);
+    border-radius: 5px;
+    color: var(--muted);
+    background: var(--light);
+    font-size: 14px;
+}
+
+/* 12. CONTACT PAGE */
+.contact-section {
+    background: var(--light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+    gap: 48px;
+}
+
+.contact-information {
+    padding-top: 15px;
+}
+
+.contact-detail {
+    margin-top: 26px;
+    padding-left: 17px;
+    border-left: 3px solid var(--red);
+}
+
+.contact-detail h3 {
+    margin-bottom: 4px;
+}
+
+.contact-form {
+    padding: 34px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+.contact-form h2 {
+    font-size: 27px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d5dce7;
+    border-radius: 8px;
+    color: var(--text);
+    background: white;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 135px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(217, 39, 54, 0.09);
+    outline: none;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+.form-note {
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.location-placeholder {
+    display: grid;
+    align-content: center;
+    min-height: 230px;
+    padding: 35px;
+    border: 1px dashed #bdc7d6;
+    border-radius: var(--radius);
+    color: var(--muted);
+    background: var(--light);
+    text-align: center;
+}
+
+.location-placeholder p + p {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/* 13. FOOTER */
+.footer {
+    padding-top: 58px;
+    color: rgba(255, 255, 255, 0.78);
+    background: #0b1426;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr;
+    gap: 40px;
+    padding-bottom: 42px;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer h3 {
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+.footer h4 {
+    font-size: 15px;
+}
+
+.footer p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-grid > div > a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 9px;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-grid > div > a:hover {
+    color: #ff8f99;
+}
+
+.footer-bottom {
+    padding: 19px 4%;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* 14. TABLET RESPONSIVENESS */
+@media (max-width: 1000px) {
+    .nav-container {
+        gap: 14px;
+    }
+
+    .navigation {
+        gap: 1px;
+    }
+
+    .navigation a {
+        padding: 9px 8px;
+        font-size: 12px;
+    }
+
+    .intro-grid {
+        gap: 35px;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+}
+
+/* 15. MOBILE NAVIGATION AND LAYOUT */
+@media (max-width: 780px) {
+    .section-padding {
+        padding: 65px 0;
+    }
+
+    .nav-container {
+        min-height: 72px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 24px;
+    }
+
+    .logo strong {
+        font-size: 18px;
+    }
+
+    .logo small {
+        font-size: 9px;
+    }
+
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+    }
+
+    .navigation {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        align-items: stretch;
+        gap: 4px;
+        padding: 14px 4% 20px;
+        border-bottom: 1px solid var(--border);
+        background: white;
+        box-shadow: 0 15px 22px rgba(16, 29, 53, 0.09);
+    }
+
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation a {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 530px;
+        padding: 75px 0;
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 8vw, 52px);
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .page-banner {
+        padding: 60px 0;
+    }
+
+    .intro-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .intro-image,
+    .intro-image img {
+        min-height: 270px;
+        max-height: 380px;
+    }
+
+    .features-grid,
+    .academic-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .contact-form {
+        padding: 27px;
+    }
+}
+
+/* 16. SMALL PHONE LAYOUT */
+@media (max-width: 520px) {
+    .container {
+        width: 90%;
+    }
+
+    .section-padding {
+        padding: 52px 0;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 62px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+        max-width: 310px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .page-banner {
+        padding: 48px 0;
+    }
+
+    .page-banner h1 {
+        font-size: 34px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .features-grid,
+    .academic-grid,
+    .gallery-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: auto;
+    }
+
+    .feature-card,
+    .academic-card {
+        padding: 24px;
+    }
+
+    .gallery-item img {
+        height: 225px;
+    }
+
+    .contact-form {
+        padding: 22px 18px;
+    }
+
+    .admissions-cta .btn {
+        display: flex;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* 17. REDUCED MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
